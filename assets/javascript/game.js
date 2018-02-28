@@ -4,31 +4,81 @@ const CrystalCollector = function() {
   const numPages      = $(".page").length;
   var   currentPage   = 0;
   
-  const numCrystals   = 4;
-  var   crystalValues = new Array(numCrystals);
+  const scoreCrystals   = 4;
+  var   crystalValues = new Array(scoreCryst);
   
   var numWins = 0, numLosses = 0;
   var targetSum, currentSum;
 
+  var game;
+
+$(document).ready(function() {
+  game = new CrystalCollector();
+
+  game.startNewGame();
+});
 
 
+$(".crystals").on("click", function() {
+  game.collectCrystal($(".crystals").index(this));}
+
+
+  function randomInteger(a, b) {
+    return Math.floor((b - a + 1) * Math.random()) + a;
+}
+
+this.collectCrystal = function(index) {
+
+    currentSum += crystalValues[index];
+
+    displayCurrentSum();
+
+    if (currentSum < targetSum) {
+        return;
+
+
+
+    } else if (currentSum === targetSum) {
+        updateNumWins(1);
+
+        $("#outputMessage").html("You Win!<br>To play again, click anywhere");
+      
+        
+        this.startNewGame();
+
+
+
+    } else {
+        updateNumLosses(1);
+
+        $("#outputMessage").html("You lose! <br>To keep trying, click anywhere.");
+        $("#lightBox").css({
+           
+        });
+
+        this.displayLightBox(true);
+        
+        this.startNewGame();
+    }
+}
+
+  
+  
   this.startNewGame = function() {
  
       targetSum  = 0;
       currentSum = 0;
 
-      for (var i = 0; i < numCrystals; i++) {
+      for (var i = 0; i < scoreCrystals; i++) {
           crystalValues[i] = randomInteger(1, 12);
-
-
           targetSum += randomInteger(1, 6) * crystalValues[i];
       }
 
 
-      while (targetSum < 19 || targetSum > 120) {
+          while (targetSum < 19 || targetSum > 120) {
           targetSum = 0;
 
-          for (var i = 0; i < numCrystals; i++) {
+          for (var i = 0; i < scoreCrystals; i++) {
               targetSum += randomInteger(1, 6) * crystalValues[i];
           }
       }
@@ -69,10 +119,7 @@ const CrystalCollector = function() {
       $("#currentSum").text(currentSum);
   }
 
-  this.updatePage = function(changeBy) {
-      currentPage = (currentPage + changeBy + numPages) % numPages;
-
-      displayCurrentPage();
+    displayCurrentPage();
   }
 
   function updateNumWins(changeBy) {
@@ -83,48 +130,4 @@ const CrystalCollector = function() {
       numLosses += changeBy;
   }
 
-  function randomInteger(a, b) {
-      return Math.floor((b - a + 1) * Math.random()) + a;
-  }
-  
-  this.collectCrystal = function(index) {
 
-      currentSum += crystalValues[index];
-
-      displayCurrentSum();
-
-      if (currentSum < targetSum) {
-          return;
-
-      } else if (currentSum === targetSum) {
-          updateNumWins(1);
-
-          $("#outputMessage").html("You Win!<br>To play again, click anywhere");
-        
-          
-          this.startNewGame();
-
-      } else {
-          updateNumLosses(1);
-
-          $("#outputMessage").html("You got greedy!<br>Click anywhere to continue.");
-          $("#lightBox").css({
-              "animation-name"  : "shake",
-              "background-color": "var(--color-danger-red)"
-          });
-
-          this.displayLightBox(true);
-          
-          this.startNewGame();
-
-      }
-  }
-}
-
-var game;
-
-$(document).ready(function() {
-  game = new CrystalCollector();
-
-  game.startNewGame();
-}
