@@ -3,9 +3,9 @@
 
 
 
-$(document).ready(function(){
+$( document).ready(function(){
 
-  var numRandom=Math.floor(Math.random()*150+19)
+  var numRandom=Math.floor(Math.random()*102+19)
   
   // On the screen, display the number 
 
@@ -37,7 +37,7 @@ $('#losses').text(losses);
 
 //white crystal
 
-$('.white').on ('click', function(){
+$('white').click(function(){
   userTotal = userTotal + crystal1;
   console.log("New userTotal= " + userTotal);
   $('#totalScore').text(userTotal); 
@@ -50,11 +50,11 @@ $('.white').on ('click', function(){
       else if (userTotal > numRandom){
         loser();
       }   
-})  
+});  
 
 //silver crystal
 
-$('.silver').on ('click', function(){
+$('silver').click(function(){
   userTotal = userTotal + crystal2;
   console.log("New userTotal= " + userTotal);
   $('#totalScore').text(userTotal); 
@@ -64,12 +64,12 @@ $('.silver').on ('click', function(){
       else if (userTotal > numRandom){
         loser();
       } 
-})  
+});  
 
 // blue crystal 
 
 
-$('.blue').on ('click', function(){
+$('blue').click(function(){
   userTotal = userTotal + crystal3;
   console.log("New playerTotal= " + userTotal);
   $('#totalScore').text(userTotal);
@@ -80,23 +80,23 @@ $('.blue').on ('click', function(){
       else if (userTotal > numRandom){
         loser();
       } 
-})  
+});
 
 //purple crystal 
 
 
-$('.purple').on ('click', function(){
+$('purple').click(function(){
   userTotal = userTotal + crystal4;
   console.log("New userTotal= " + userTotal);
   $('#totalScore').text(userTotal); 
     
         if (userTotal == numRandom){
-        woohoo();
+        winner();
       }
       else if ( userTotal > numRandom){
         loser();
       }
-});   
+  });   
 }); 
 
 
@@ -105,10 +105,10 @@ function gameReset(){
       numRandom=Math.floor(Math.random()*102+19);
       console.log(numRandom)
       $('#scoreToMatch').text(numRandom);
-      num1= Math.floor(Math.random()*12+1);
-      num2= Math.floor(Math.random()*12+1);
-      num3= Math.floor(Math.random()*12+1);
-      num4= Math.floor(Math.random()*12+1);
+      crystal1= Math.floor(Math.random()*12+1);
+      crystal2= Math.floor(Math.random()*12+1);
+      crystal3= Math.floor(Math.random()*12+1);
+      crystal4= Math.floor(Math.random()*12+1);
       userTotal= 0;
       $('#totalScore').text(userTotal);
       } 
@@ -133,3 +133,4 @@ alert ("You Lose!");
   $('#losses').text(losses);
   gameReset()
 }
+
