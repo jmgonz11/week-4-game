@@ -15,8 +15,11 @@ $(document).ready(function(){
 
 
   var crystal1= Math.floor(Math.random()*12+1)
+
   var crystal2= Math.floor(Math.random()*12+1)
+
   var crystal3= Math.floor(Math.random()*12+1)
+  
   var crystal4= Math.floor(Math.random()*12+1)
   
 // Game and player stats need their own variable 
