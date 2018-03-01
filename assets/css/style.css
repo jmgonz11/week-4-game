@@ -4,20 +4,17 @@ h1 {
     font-family   : "Tahoma";
     font-size     : 40px;
     text-align    : center;
-    margin-bottom : 25%;
 }
 
-h2 {
+h2,h3 {
     color         : blueviolet;
     font-size     : 25px;
 
-    margin-bottom : 15%;
 }
 
 p {
     line-height   : 1px;
 
-    margin-bottom : 25%;
 }
 
 body {
@@ -26,33 +23,6 @@ body {
     font-size  : 30px;
 }
 
-
-
-h2 {
-    color         : var(--color-text-highlight);
-    font-size     : 1.3em;
-    letter-spacing: 0.01em;
-
-    margin-bottom : 3%;
-}
-
-
-.jumbotron {
-    background-image: url("../images/jumbotron-bg.jpg");
-    background-size: cover;
-    
-  }
-  
-  .jumbotron h1 {
-    color: #000;
-    text-shadow: 3px 3px #fff;
-  
-  }
-  
-  .instructions {
-    text-align: center; 
-  }
-  
   
 
 
