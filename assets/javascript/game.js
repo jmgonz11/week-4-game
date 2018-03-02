@@ -1,9 +1,9 @@
 
-//Get Game to generate random number to guess 
+//Get Game to generate random number to guess this should appear at the top of the screen so the player knows which number to match
 
 
 
-$( document).ready(function(){
+$(document).ready(function(){
 
   var numRandom=Math.floor(Math.random()*102+19)
   
@@ -25,7 +25,7 @@ $( document).ready(function(){
 // Game and player stats need their own variable 
 
 
-  var playerGuesses= 0; 
+  var userTotal= 0; 
   var wins= 0;
   var losses = 0;
   
@@ -34,10 +34,11 @@ $('#wins').text(wins);
 $('#losses').text(losses);
 
 // When a crystal is clicked, there needs to be a number gussesed adding up to the total sum
+//Need to figure out how to get the guesses to display on the screen- currently they are not. 
 
 //white crystal
 
-$('white').click(function(){
+$('#white').click(function(){
   userTotal = userTotal + crystal1;
   console.log("New userTotal= " + userTotal);
   $('#totalScore').text(userTotal); 
@@ -50,11 +51,11 @@ $('white').click(function(){
       else if (userTotal > numRandom){
         loser();
       }   
-});  
+})
 
 //silver crystal
 
-$('silver').click(function(){
+$('#silver').click(function(){
   userTotal = userTotal + crystal2;
   console.log("New userTotal= " + userTotal);
   $('#totalScore').text(userTotal); 
@@ -64,12 +65,12 @@ $('silver').click(function(){
       else if (userTotal > numRandom){
         loser();
       } 
-});  
+})
 
 // blue crystal 
 
 
-$('blue').click(function(){
+$('#blue').click(function(){
   userTotal = userTotal + crystal3;
   console.log("New playerTotal= " + userTotal);
   $('#totalScore').text(userTotal);
@@ -80,12 +81,12 @@ $('blue').click(function(){
       else if (userTotal > numRandom){
         loser();
       } 
-});
+})
 
 //purple crystal 
 
 
-$('purple').click(function(){
+$('#purple').click(function(){
   userTotal = userTotal + crystal4;
   console.log("New userTotal= " + userTotal);
   $('#totalScore').text(userTotal); 
@@ -97,7 +98,7 @@ $('purple').click(function(){
         loser();
       }
   });   
-}); 
+})
 
 
 // Need function for when the game needs to reset to the beginning 
