@@ -25,9 +25,11 @@ $(document).ready(function(){
 // Game and player stats need their own variable 
 
 
-  var userTotal= 0; 
-  var wins= 0;
-  var losses = 0;
+  
+var wins= 0;
+var losses= 0;
+var userTotal= 0; 
+ 
   
 
 $('#wins').text(wins);
@@ -72,7 +74,7 @@ $('#silver').click(function(){
 
 $('#blue').click(function(){
   userTotal = userTotal + crystal3;
-  console.log("New playerTotal= " + userTotal);
+  console.log("New userTotal= " + userTotal);
   $('#totalScore').text(userTotal);
 
         if (userTotal == numRandom){
@@ -132,6 +134,5 @@ function loser(){
 alert ("You Lose!");
   losses++;
   $('#losses').text(losses);
-  gameReset()
 }
 
